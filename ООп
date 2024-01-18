@@ -1,0 +1,57 @@
+class User:
+    name = ''
+    email = ''
+    approved_by = ''
+    
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+        
+    def show(self):
+        print('Name: ', self.name)
+        print('Email: ', self.email)
+        print('Approved by: ', self.approved_by)
+        
+        
+class AdminUser(User):
+    def __init__(self, name, email):
+        # super возвращает все поля и методы класса-родителя, от которого мы наследуем новый класс
+        super().__init__(name, email)
+        self.approved_by = 'admin'
+        
+    def approve(self, user:User):
+        user.approved_by = self.name
+
+
+class RegularUser(User):
+    def __init__(self, name, email):
+        super().__init__(name, email)
+        
+    def request_approval(self):
+        print(f"{self.name} has requested approval.")
+        
+    def check_approval_status(self):
+        print(f"Approval status for {self.name}: {self.approved_by}")
+
+
+user = User('aleks', 'mail@alex.com')
+admin = AdminUser('ivan', 'mail@ivan.com')
+
+admin.approve(user)
+
+user.show()
+
+admin.show()
+
+
+admin2 = AdminUser('petr', 'mail@petr.com')
+admin2.approve(admin)
+
+
+regular_user = RegularUser('john', 'john@mail.com')
+regular_user.request_approval()
+regular_user.check_approval_status()
+
+
+
+# Задание 2.1
