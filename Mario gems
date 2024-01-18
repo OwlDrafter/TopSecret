@@ -1,0 +1,25 @@
+class Player:
+    def __init__(self, health=4, x_position=0, y_position=0):
+        self.health = health
+        self.x_position = x_position
+        self.y_position = y_position
+
+    def move_left(self, distance):
+        self.x_position = max(0, self.x_position - distance)
+
+    def move_right(self, distance):
+        self.x_position = min(1000, self.x_position + distance)
+
+    def jump(self, height):
+        self.y_position = min(100, self.y_position + height)
+
+# Пример использования класса:
+player1 = Player()
+print(f"Initial position: x={player1.x_position}, y={player1.y_position}, health={player1.health}")
+
+player1.move_right(200)
+player1.jump(50)
+print(f"New position: x={player1.x_position}, y={player1.y_position}, health={player1.health}")
+
+player1.move_left(300)
+print(f"Final position: x={player1.x_position}, y={player1.y_position}, health={player1.health}")
