@@ -23,3 +23,6 @@ print(f"New position: x={player1.x_position}, y={player1.y_position}, health={pl
 
 player1.move_left(300)
 print(f"Final position: x={player1.x_position}, y={player1.y_position}, health={player1.health}")
+
+
+2.3
