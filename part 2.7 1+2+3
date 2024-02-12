@@ -1,0 +1,41 @@
+def print_odd(lst):
+    if len(lst) == 0:
+        return
+    elif lst[0] % 2 != 0:
+        print(lst[0])
+    print_odd(lst[1:])
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print("Нечетные числа из списка:")
+print_odd(numbers)
+
+
+--/
+def count_elements(lst):
+  if not lst:
+    return 0
+  else:
+    return 1 + count_elements(lst[1:])
+    
+    
+    
+my_list = [1,2,3,4,5,6,7,8,9]
+print('Количество элементов в списке', count_elements(my_list))
+
+--/
+def print_next_element(lst):
+  for item in lst:
+    yield item
+    
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+next_item = print_next_element(my_list)
+
+print(next(next_item))
+print(next(next_item))
+print(next(next_item))
+print(next(next_item))
+print(next(next_item))
+print(next(next_item))
+print(next(next_item))
+print(next(next_item))
+print(next(next_item))
